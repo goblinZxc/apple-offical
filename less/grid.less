@@ -1,0 +1,75 @@
+@padding:15px;
+@smwidth:768px;
+@mdwidth:1000px;
+@lgwidth:1200px;
+@col:12;
+.container{
+  &-fuild{
+    display:block;
+    height:auto;
+  }
+  &{
+    display:block;
+    height:auto;
+    margin-left:auto !important;
+    margin-right:auto !important;
+  }
+  &-fuild .row,& .row{
+    display:block;
+    &:before,&:after{
+      content:"";
+      display:block;
+      clear:both;
+      height:0;
+      line-height:0;
+    }
+  }
+}
+[class*=col-]{
+  float: left;
+}
+.col(@type,@i:1) when (@i<=@col){
+  .col-@{type}-@{i}{
+    width:100 / @col * @i * 1%
+  }
+  .col(@type,@i + 1);
+}
+.col(xs);
+@media screen and (min-width:@smwidth){
+  .container{
+    width:750px;
+  }
+  .col(sm);
+}
+@media screen and (min-width:@mdwidth){
+  .container{
+    width:960px;
+  }
+  .col(md);
+}
+@media screen and (min-width:@lgwidth){
+  .container{
+    width:1200px;
+  }
+  .col(lg);
+}
+@media screen and (max-width:@smwidth){
+  .hidden-xs{
+    display:none;
+  }
+}
+@media screen and (max-width:@mdwidth) and (min-width:@smwidth){
+  .hidden-sm{
+    display:none;
+  }
+}
+@media screen and (max-width:@lgwidth) and (min-width:@mdwidth){
+  .hidden-md{
+    display:none;
+  }
+}
+@media screen and (min-width:@lgwidth){
+  .hidden-lg{
+    display:none;
+  }
+}

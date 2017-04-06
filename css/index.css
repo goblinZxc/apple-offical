@@ -1,0 +1,645 @@
+/*页面初始化*/
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Myriad Set Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+}
+img {
+  border: 0;
+  vertical-align: middle;
+}
+ul,
+li {
+  list-style: none;
+}
+.header {
+  width: 100%;
+  height: 42px;
+  position: absolute;
+  z-index: 999999;
+  background: rgba(0, 0, 0, 0.8);
+}
+.header .navbox {
+  max-width: 1000px;
+  height: 100%;
+  text-align: justify;
+  line-height: 42px;
+  margin: 0 auto;
+  position: relative;
+}
+.header .navbox:after {
+  content: "";
+  display: inline-block;
+  width: 100%;
+  height: 0;
+  line-height: 0;
+}
+.header .navbox a {
+  color: #fff;
+  font-size: 14px;
+  display: inline-block;
+  padding: 0 20px;
+  transition: color 0.4s, transform 0.4s cubic-bezier(1, 0, 0, 1);
+}
+.header .navbox a:hover {
+  color: #B6B6B6;
+}
+.header .navbox .hidnav {
+  transform: scale(0);
+}
+.header .navbox .bag {
+  color: #fff;
+  font-size: 16px;
+  display: inline-block;
+  padding: 0 20px;
+  transition: color 0.4s, transform 0.4s cubic-bezier(1, 0, 0, 1);
+}
+.header .navbox .bag:hover {
+  color: #B6B6B6;
+}
+.header .navbox .logo {
+  font-size: 20px;
+}
+.header .navbox .search {
+  font-size: 18px;
+}
+.header .navbox .searchbox {
+  max-width: 683px;
+  display: none;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+}
+.header .navbox .searchbox .skuang {
+  width: 100%;
+  height: 42px;
+}
+.header .navbox .searchbox .skuang .fdj {
+  color: #fff;
+  font-size: 18px;
+  opacity: 0;
+  padding: 0 10px;
+  transition: 0.3s cubic-bezier(0, 0, 0.22, 0.95);
+  margin-left: 100px;
+}
+.header .navbox .searchbox .skuang .input {
+  opacity: 0;
+  transition: 0.3s cubic-bezier(0, 0, 0.22, 0.95);
+  margin: 0;
+  padding: 0 0 0 40px;
+  border: 0;
+  color: #fff;
+  display: inline-block;
+  width: 100%;
+  height: 42px;
+  outline: 0;
+  position: absolute;
+  top: 0;
+  left: 100px;
+  background: transparent;
+  font-size: 15px;
+}
+.header .navbox .searchbox .tuijian {
+  padding: 24px 10px 15px ;
+  width: 100%;
+  height: auto;
+  background: #fff;
+}
+.header .navbox .searchbox .tuijian .ltitle {
+  opacity: 0;
+  transition: 0.3s cubic-bezier(0, 0, 0.22, 0.95);
+  display: block;
+  width: 100%;
+  height: 12px;
+  line-height: 12px;
+  color: #AFAFAF;
+  font-size: 12px;
+  padding-left: 125px;
+}
+.header .navbox .searchbox .tuijian .lianjie {
+  opacity: 0;
+  transition: 0.3s cubic-bezier(0, 0, 0.22, 0.95);
+  display: block;
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  color: #AFAFAF;
+  font-size: 14px;
+  padding: 0 150px;
+  margin: 10px 0;
+}
+.header .navbox .searchbox .tuijian .lianjie:hover {
+  background: #F2F2F2;
+  color: #2583CF;
+}
+.header .navbox .close {
+  position: absolute;
+  display: none;
+  top: 0;
+  right: 15px;
+  height: 42px;
+  line-height: 42px;
+  font-size: 20px;
+  cursor: pointer;
+  color: #fff;
+}
+.header .navhezi {
+  width: 100%;
+  padding: 0 15px;
+  text-align: justify;
+  position: relative;
+}
+.header .navhezi:after {
+  content: '';
+  display: inline-block;
+  clear: both;
+  height: 0;
+  line-height: 0;
+  width: 100%;
+}
+.header .navhezi .snav {
+  display: inline-block;
+  color: #fff;
+  font-size: 20px;
+  line-height: 46px;
+  cursor: pointer;
+}
+.header .navhezi .snav:hover {
+  color: #B6B6B6;
+}
+.header .navhezi .slogo {
+  font-size: 22px;
+  transition: .3s;
+  position: relative;
+  top: 0;
+  opacity: 1;
+}
+.header .navhezi .sbag {
+  position: relative;
+  transition: .2s;
+}
+.header .navhezi .hanbao {
+  width: 17px;
+  height: 8px;
+  position: relative;
+  transition: .2s linear;
+}
+.header .navhezi .hanbao:hover .xian1,
+.header .navhezi .hanbao:hover .xian2 {
+  background: #B6B6B6;
+}
+.header .navhezi .hanbao .xian1 {
+  width: 17px;
+  height: 1px;
+  background: #fff;
+  position: absolute;
+  transition: .2s linear;
+  top: 0;
+  left: 0;
+}
+.header .navhezi .hanbao .xian2 {
+  width: 17px;
+  height: 1px;
+  background: #fff;
+  position: absolute;
+  transition: .2s linear;
+  bottom: 0;
+  left: 0;
+}
+.header .navhezi .topjian {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 25px;
+  left: 50%;
+  margin-left: -10px;
+  display: none;
+  cursor: pointer;
+}
+.header .navhezi .topjian .txian1 {
+  width: 10px;
+  height: 1px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #fff;
+  transition: .1s;
+}
+.header .navhezi .topjian .txian2 {
+  width: 10px;
+  height: 1px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #fff;
+  transition: .1s;
+}
+.header .navhezi .menu {
+  display: block;
+  position: absolute;
+  top: 46px;
+  left: 0;
+  width: 100%;
+  background: #000;
+  display: none;
+  padding: 10px 48px 0;
+}
+.header .navhezi .menu .daohang {
+  display: block;
+  width: 100%;
+  height: 50px;
+  border-bottom: 1px solid #333333;
+  font-weight: lighter;
+  font-size: 18px;
+  line-height: 50px;
+  color: #a0a0a0;
+}
+.header .navhezi .menu .daohang:hover {
+  color: #B6B6B6;
+}
+.header .navhezi .menu .sousuo {
+  height: auto;
+  border-bottom: 0px solid #333333;
+}
+.header .navhezi .menu .sousuo .sskuang {
+  width: 100%;
+  height: 50px;
+  border-bottom: 2px solid #838383;
+  position: relative;
+}
+.header .navhezi .menu .sousuo .sskuang .sfdj {
+  font-size: 20px;
+}
+.header .navhezi .menu .sousuo .sskuang .shuru {
+  display: block;
+  width: 100%;
+  height: 50px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: transparent;
+  margin: 0;
+  border: 0;
+  outline: 0;
+  padding-left: 20px;
+  font-size: 20px;
+  color: #fff;
+}
+.header .navhezi .menu .sousuo .stuijian {
+  width: 100%;
+  height: auto;
+  padding: 20px 20px 0;
+  display: none;
+}
+.header .navhezi .menu .sousuo .stuijian .sltitle {
+  width: 100%;
+  height: 12px;
+  line-height: 12px;
+  display: block;
+  font-size: 10px;
+  margin-left: -20px;
+}
+.header .navhezi .menu .sousuo .stuijian .slianjie {
+  width: 100%;
+  height: 45px;
+  line-height: 45px;
+  display: block;
+  font-size: 13px;
+  border-top: 1px solid #1F1F1F;
+  color: #A1A1A1;
+}
+.header .navhezi .menu .sousuo .stuijian .slianjie:nth-of-type(1) {
+  border-top: 0px solid #1F1F1F;
+}
+.bannerqu {
+  width: 100%;
+  height: 540px;
+  background: red;
+  position: relative;
+  overflow: hidden;
+}
+.bannerqu .bannerbox {
+  width: 100%;
+  height: 540px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.bannerqu .bannerbox1 {
+  background: #0A0A0A;
+  z-index: 1;
+}
+.bannerqu .bannerbox1 .banner {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: url(../imgs/lgban1.jpg) no-repeat center center;
+}
+.bannerqu .bannerbox2 {
+  background: #F3F3F3;
+}
+.bannerqu .bannerbox2 .banner {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: url(../imgs/lgban2.jpg) no-repeat center center;
+}
+.bannerqu .bannerbox3 {
+  background: #FFFFFF;
+}
+.bannerqu .bannerbox3 .banner {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: url(../imgs/lgban3.jpg) no-repeat center center;
+}
+.bannerqu .leftbox {
+  width: 20%;
+  height: 540px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+}
+.bannerqu .leftbox .bleft {
+  display: block;
+  width: 64px;
+  height: 64px;
+  background-color: rgba(180, 180, 180, 0.25);
+  color: #848484;
+  font-size: 40px;
+  line-height: 64px;
+  opacity: 0;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  margin-top: -32px;
+  left: 20%;
+  text-align: center;
+  transition: .2s;
+}
+.bannerqu .leftbox:hover .bleft {
+  opacity: 1;
+}
+.bannerqu .rightbox {
+  width: 20%;
+  height: 540px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 99999;
+}
+.bannerqu .rightbox .bright {
+  display: block;
+  width: 64px;
+  height: 64px;
+  background-color: rgba(180, 180, 180, 0.25);
+  color: #848484;
+  font-size: 40px;
+  line-height: 64px;
+  opacity: 0;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  margin-top: -32px;
+  right: 20%;
+  text-align: center;
+  transiton: .2s;
+}
+.bannerqu .rightbox:hover .bright {
+  opacity: 1;
+}
+.bannerqu .btnbox {
+  width: 170px;
+  height: 2px;
+  position: absolute;
+  bottom: 33px;
+  left: 50%;
+  z-index: 99999;
+  margin-left: -85px;
+}
+.bannerqu .btnbox .btn {
+  float: left;
+  display: block;
+  width: 50px;
+  height: 2px;
+  background: rgba(128, 128, 128, 0.2);
+  padding-bottom: 10px;
+}
+.bannerqu .btnbox .btn:first-child {
+  background: #808080;
+}
+.bannerqu .btnbox .btn:nth-child(2) {
+  margin: 0 10px;
+}
+.zhanshi {
+  height: 200px;
+  border: 1px solid #fff;
+  boeder-left: 0;
+}
+.zhanshi:nth-child(1) {
+  background: url(../imgs/1.jpg) no-repeat center center / cover;
+}
+.zhanshi:nth-child(2) {
+  background: url(../imgs/2.jpg) no-repeat center center / cover;
+}
+.zhanshi:nth-child(3) {
+  background: url(../imgs/3.jpg) no-repeat center center / cover;
+}
+.zhanshi:nth-child(4) {
+  background: url(../imgs/4.jpg) no-repeat center center / cover;
+}
+.footer {
+  width: 100%;
+  height: auto;
+  background: #F2F2F2;
+}
+.footer .tishi {
+  max-width: 980px;
+  width: 90%;
+  min-height: 48px;
+  height: auto;
+  font-size: 12px;
+  line-height: 20px;
+  padding: 14px 0;
+  color: #A9A199;
+  margin: 0 auto;
+  border-bottom: 1px solid #E3E3E3;
+}
+.footer .more1 {
+  max-width: 980px;
+  width: 90%;
+  height: auto;
+  overflow: hidden;
+  padding: 20px 0 0 0;
+  margin: 0 auto;
+}
+.footer .more1 .morezi {
+  width: 20%;
+  height: auto;
+  float: left;
+}
+.footer .more1 .morezi ul {
+  font-size: 12px;
+  color: #333333;
+  font-weight: bold;
+  line-height: 22px;
+  padding-bottom: 20px;
+}
+.footer .more1 .morezi ul li a {
+  font-size: 12px;
+  color: #666;
+  font-weight: normal;
+  line-height: 20px;
+}
+.footer .more2 {
+  width: 90%;
+  height: auto;
+  overflow: hidden;
+  padding: 20px 0 0 0;
+  margin: 0 auto;
+}
+.footer .more2 ul {
+  font-size: 14px;
+  color: #333333;
+  font-weight: bold;
+  line-height: 38px;
+  position: relative;
+  border-bottom: 1px solid #E3E3E3;
+}
+.footer .more2 ul li {
+  display: none;
+}
+.footer .more2 ul li a {
+  font-size: 14px;
+  color: #666;
+  font-weight: normal;
+  line-height: 30px;
+  padding-left: 20px;
+}
+.footer .more2 ul .cha {
+  width: 9px;
+  height: 9px;
+  position: absolute;
+  top: 15px;
+  right: 0;
+  cursor: pointer;
+}
+.footer .more2 ul .cha .heng {
+  width: 9px;
+  height: 1px;
+  position: absolute;
+  top: 4px;
+  left: 0;
+  background: #333E50;
+}
+.footer .more2 ul .cha .shu {
+  width: 1px;
+  height: 9px;
+  position: absolute;
+  top: 0;
+  left: 4px;
+  background: #333E50;
+}
+.footer .shop {
+  max-width: 980px;
+  width: 90%;
+  min-height: 26px;
+  height: auto;
+  line-height: 20px;
+  border-bottom: 1px solid #E3E3E3;
+  margin: 0 auto;
+  font-size: 12px;
+  color: #A9A199;
+}
+.footer .shop a {
+  color: #4B80D4;
+}
+.footer .banquanbox {
+  max-width: 980px;
+  width: 90%;
+  margin: 0 auto;
+  height: auto;
+  overflow: hidden;
+  position: relative;
+}
+.footer .banquanbox .banquan {
+  width: auto;
+  height: 30px;
+  line-height: 30px;
+  font-size: 10px;
+  color: #A9A199;
+  float: left;
+}
+.footer .banquanbox .banquan .bqlianjie {
+  line-height: 30px;
+  font-size: 12px;
+  color: #73666E;
+  padding: 0 10px;
+}
+.footer .banquanbox .country {
+  position: absolute;
+  background: url(../imgs/16.png) no-repeat;
+  font-size: 12px;
+  color: #969696;
+  display: block;
+  width: 46px;
+  height: 16px;
+  padding-left: 16px;
+  text-align: center;
+  line-height: 16px;
+  top: 10px;
+  right: 0;
+}
+.footer .beianhao {
+  max-width: 980px;
+  width: 90%;
+  min-height: 48px;
+  height: auto;
+  font-size: 12px;
+  line-height: 20px;
+  padding: 0 0 30px 0;
+  color: #A9A199;
+  margin: 0 auto;
+}
+@media screen and (max-width: 768px) {
+  .navbox {
+    display: none;
+  }
+  .header {
+    height: 46px;
+  }
+  .zhanshi {
+    border-right: 0;
+  }
+  .more1 {
+    display: none;
+  }
+  .shop {
+    padding-top: 25px;
+  }
+  .banquanbox {
+    padding-top: 25px;
+  }
+  .banquanbox .country {
+    left: 0;
+  }
+}
+@media screen and (min-width: 768px) {
+  .navhezi {
+    display: none;
+  }
+  .header {
+    height: 42px;
+  }
+  .more2 {
+    display: none;
+  }
+}
